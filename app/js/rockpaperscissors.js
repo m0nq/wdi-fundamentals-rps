@@ -4,8 +4,7 @@
 'use strict';
 
 function getInput() {
-	console.log("Please choose either 'rock', 'paper', or 'scissors'.")
-	return prompt();
+	return prompt("Please choose either 'rock', 'paper', or 'scissors'.");
 }
 
 function randomPlay() {
@@ -53,11 +52,11 @@ function getWinner(playerMove,computerMove) {
 	
 	if (playerResult === compResult) {
 		winner = "tie";
-	} else if (playerMove === 2 && compResult === 0) {
+	} else if (playerResult === 2 && compResult === 0) {
 		winner = "player";
 	} else if (compResult === 2 && playerResult === 0) {
 		winner = "computer";
-	} else if (playerMove < computerMove) {
+	} else if (playerResult < compResult) {
 		winner = "player"
 	} else {
 		winner = "computer"
@@ -67,15 +66,36 @@ function getWinner(playerMove,computerMove) {
 }
 
 function playToFive() {
-	console.log("Let's play Rock, Paper, Scissors");
+	alert("Let's play Rock, Paper, Scissors");
 	var playerWins = 0;
 	var computerWins = 0;
 	// Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
 	/* YOUR CODE HERE */
+	while (playerWins < 5 && computerWins < 5) {
+		var result = getWinner(getPlayerMove(), getComputerMove());
+		if (result === "player") {
+			alert("You won this round! You: " + (playerWins + 1) + ", Computer: " + computerWins + ".");
+			playerWins += 1;
+		} else if (result === "computer") {
+			alert("Computer won this round! You: " + playerWins + ", Computer: " + (computerWins + 1) + ".");
+			computerWins += 1;
+		} else {
+			alert("Tie!");
+		}
+	}
+
+	if (playerWins === 5) {
+		alert("You won first to five games! You: " + playerWins + ", Computer: " + computerWins + ".");
+	} else if (computerWins === 5) {
+		alert("Computer won first to five games. You: " + playerWins + ", Computer: " + computerWins + ".")
+	}
+
 	return [playerWins, computerWins];
 }
 
+//////////////////////
 /* Helper Functions */
+//////////////////////
 
 // String -> Number[0, 2]
 // enumerator returns 0 for rock, 1 for paper, 2 for scissors.
@@ -83,9 +103,9 @@ function enumerator (move) {
 	switch (move) {
 	case 'rock':
 		 return 0;
-	case 'paper':
-		return 1;
 	case 'scissors':
+		return 1;
+	case 'paper':
 		return 2;
 	}
 }
