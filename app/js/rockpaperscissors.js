@@ -70,7 +70,9 @@ function playToFive() {
 	var computerWins = 0;
 	// Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
 	/* YOUR CODE HERE */
-	while (playerWins < 5 && computerWins < 5) {
+	var plays = playTo(prompt("Best out of...?"));
+
+	while (playerWins < plays && computerWins < plays) {
 		var result = getWinner(getPlayerMove(), getComputerMove());
 		if (result === "player") {
 			console.log("You won this round! You: " + (playerWins + 1) + ", Computer: " + computerWins + ".");
@@ -83,10 +85,10 @@ function playToFive() {
 		}
 	}
 
-	if (playerWins === 5) {
-		console.log("You won first to five games! You: " + playerWins + ", Computer: " + computerWins + ".");
-	} else if (computerWins === 5) {
-		console.log("Computer won first to five games. You: " + playerWins + ", Computer: " + computerWins + ".")
+	if (playerWins === plays) {
+		console.log("You won the first to " + plays + " games! You: " + playerWins + ", Computer: " + computerWins + ".");
+	} else if (computerWins === plays) {
+		console.log("Computer won the first to " + plays + " games. You: " + playerWins + ", Computer: " + computerWins + ".")
 	}
 
 	return [playerWins, computerWins];
@@ -107,4 +109,10 @@ function enumerator (move) {
 	case 'paper':
 		return 2;
 	}
+}
+
+// String -> Natural
+// consumes an string from user to determine corresponding number to return.
+function playTo (x) {
+	return parseInt(x);
 }
