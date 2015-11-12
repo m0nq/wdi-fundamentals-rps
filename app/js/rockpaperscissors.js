@@ -4,20 +4,19 @@
 'use strict';
 
 function getInput() {
-	return prompt("Please choose either 'rock', 'paper', or 'scissors'.");
+  console.log("Please choose either 'rock', 'paper', or 'scissors'.")
+  return prompt();
 }
-
 function randomPlay() {
-	var randomNumber = Math.random();
-	if (randomNumber < 0.33) {
-		return "rock";
-	} else if (randomNumber < 0.66) {
-		return "paper";
-	} else {
-		return "scissors";
-	}
+  var randomNumber = Math.random();
+  if (randomNumber < 0.33) {
+      return "rock";
+  } else if (randomNumber < 0.66) {
+      return "paper";
+  } else {
+      return "scissors";
+  }
 }
-
 ////////////////////////////////////////////////
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
@@ -57,9 +56,9 @@ function getWinner(playerMove,computerMove) {
 	} else if (compResult === 2 && playerResult === 0) {
 		winner = "computer";
 	} else if (playerResult < compResult) {
-		winner = "player"
+		winner = "player";
 	} else {
-		winner = "computer"
+		winner = "computer";
 	}
 
 	return winner;
