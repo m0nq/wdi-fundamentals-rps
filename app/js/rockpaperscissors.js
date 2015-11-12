@@ -10,11 +10,11 @@ function getInput() {
 function randomPlay() {
   var randomNumber = Math.random();
   if (randomNumber < 0.33) {
-      return "rock";
+    return "rock";
   } else if (randomNumber < 0.66) {
-      return "paper";
+    return "paper";
   } else {
-      return "scissors";
+    return "scissors";
   }
 }
 ////////////////////////////////////////////////
@@ -65,7 +65,7 @@ function getWinner(playerMove,computerMove) {
 }
 
 function playToFive() {
-	alert("Let's play Rock, Paper, Scissors");
+	console.log("Let's play Rock, Paper, Scissors");
 	var playerWins = 0;
 	var computerWins = 0;
 	// Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
@@ -73,20 +73,20 @@ function playToFive() {
 	while (playerWins < 5 && computerWins < 5) {
 		var result = getWinner(getPlayerMove(), getComputerMove());
 		if (result === "player") {
-			alert("You won this round! You: " + (playerWins + 1) + ", Computer: " + computerWins + ".");
+			console.log("You won this round! You: " + (playerWins + 1) + ", Computer: " + computerWins + ".");
 			playerWins += 1;
 		} else if (result === "computer") {
-			alert("Computer won this round! You: " + playerWins + ", Computer: " + (computerWins + 1) + ".");
+			console.log("Computer won this round! You: " + playerWins + ", Computer: " + (computerWins + 1) + ".");
 			computerWins += 1;
 		} else {
-			alert("Tie!");
+			console.log("Tie!");
 		}
 	}
 
 	if (playerWins === 5) {
-		alert("You won first to five games! You: " + playerWins + ", Computer: " + computerWins + ".");
+		console.log("You won first to five games! You: " + playerWins + ", Computer: " + computerWins + ".");
 	} else if (computerWins === 5) {
-		alert("Computer won first to five games. You: " + playerWins + ", Computer: " + computerWins + ".")
+		console.log("Computer won first to five games. You: " + playerWins + ", Computer: " + computerWins + ".")
 	}
 
 	return [playerWins, computerWins];
@@ -101,7 +101,7 @@ function playToFive() {
 function enumerator (move) {
 	switch (move) {
 	case 'rock':
-		 return 0;
+		return 0;
 	case 'scissors':
 		return 1;
 	case 'paper':
